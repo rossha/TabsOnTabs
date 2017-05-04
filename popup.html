@@ -12,12 +12,20 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
+      #extension-popup__add-sticky {
+      	background-color: #fff199;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .extension-popup__add-sticky__text {
+        width: 46px;
+        height: 35px;
+        background-color: #fff199;
+        padding:10px;
         overflow: hidden;
-        max-width: 400px;
+        text-align: center;
       }
     </style>
 
@@ -31,7 +39,20 @@
   </head>
   <body>
     <div class="extension-popup">
-      <div id="extension-popup__add-sticky">Add a Sticky</div>
+      <div class="extension-popup__update-title">
+        <div id="extension-popup__update-title__text" contenteditable="true">
+          Update Title
+        </div>
+        <div id="extension-popup__update-title__confirm">
+          Confirm
+        </div>
+      </div>
+      <br>
+      <div id="extension-popup__add-sticky">
+        <div class="extension-popup__add-sticky__text">
+          Add a Sticky
+        </div>
+      </div>
     </div>
     <!--<div id="status"></div>
     <img id="image-result" hidden>-->

@@ -8,19 +8,42 @@
 // "title this tab" feature
 // ctrl-B to bold, ctrl-I to italicize
 
-// bugs
-// styling of note strange and terrible on stackoverflow...why?
+// title update listener
+// chrome.runtime.onMessage.addListener(
+//   function(request, sender, sendResponse) {
+//     updateTitle();
+//     console.log(sender.tab ?
+//                 "from a content script:" + sender.tab.url :
+//                 "from the extension");
+//     if (request.greeting == "update title")
+//       sendResponse({farewell: "end title update"});
+//       return true;
+// });
 
+// sticky listener
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    addSticky();
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    if (request.greeting == "hello")
-      sendResponse({farewell: "goodbye"});
+
+    if (request.greeting == "add sticky") {
+      addSticky();
+      sendResponse({farewell: "end sticky function"});
       return true;
+    }
+
+    if (request.greeting == "update title") {
+      updateTitle();
+      sendResponse({farewell: "end title update"});
+      return true;
+    }
+
 });
+
+function updateTitle() {
+  console.log('oh');
+}
 
 function addSticky(e) {
     //e.preventDefault();
@@ -87,7 +110,8 @@ function drag(e) {
     // return;
   }
 
-  const [x,y] = [e.pageX, e.pageY];
+  // move sticky relative to window, not the document
+  const [x,y] = [e.clientX, e.clientY];
   const [walkX, walkY] = [(x + shift.left - startCoords.left),(y + shift.top - startCoords.top)]
 
   note.style.setProperty('transform', `translate(${walkX}px, ${walkY}px)`);
