@@ -1,7 +1,3 @@
-.extension-popup__add-sticky {
-	
-}
-
 div#stickynotes {
 	all: unset;
 	width: 0;
@@ -10,7 +6,7 @@ div#stickynotes {
 
 .stickynote {
 	all: unset;
-	background-color: #ffff85;
+	background-color: #fff199;
 	display: inline-block;
 	margin: 5px;
 	position: fixed;
@@ -26,7 +22,7 @@ div#stickynotes {
 	outline: none;
 	padding: 7px;
 	font-family: Tahoma, sans-serif;
-	background-color: #ffff85;
+	background-color: #fff199;
 	color: black;
 	-webkit-appearance: textarea;
   -webkit-rtl-ordering: logical;
