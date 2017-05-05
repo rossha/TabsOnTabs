@@ -10,14 +10,27 @@
 
 function init() {
 
+  // title text functionality
+  document.getElementById("extension-popup__update-title__text").addEventListener("click", function() {
+    //console.log(this);
+    this.textContent = '';
+    this.classList.add('dirty');
+  }, false);
+
+  document.getElementById("extension-popup__update-title__text").addEventListener("blur", function() {
+    if(this.textContent == '') {
+      this.textContent = 'Update Tab Title';
+      this.classList.remove('dirty');
+    }
+  }, false);
+
   // update title
   document.getElementById("extension-popup__update-title__confirm").addEventListener("click", function() {
 
-    const update = document.getElementById("extension-popup__update-title__text").innerHTML;
+    const update = document.getElementById("extension-popup__update-title__text").textContent;
 
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {greeting: "update title"}, function(response) {
-        document.title = update;
+      chrome.tabs.sendMessage(tabs[0].id, { greeting: "update title", title: update }, function(response) {
         console.log(response.farewell);
       });
     });
@@ -28,7 +41,7 @@ function init() {
   document.getElementById("extension-popup__add-sticky").addEventListener("click", function() {
 
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {greeting: "add sticky"}, function(response) {
+      chrome.tabs.sendMessage(tabs[0].id, { greeting: "add sticky" }, function(response) {
         console.log(response.farewell);
       });
     });
