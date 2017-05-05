@@ -1,0 +1,61 @@
+#stickynotes {
+	all: unset;
+	width: 0;
+	height: 0;
+}
+
+.stickynote {
+	all: unset;
+	background-color: #fff199;
+	display: inline-block;
+	margin: 5px;
+	position: fixed;
+	z-index: 2147483647;
+	top:5%;
+	left:5%;
+}
+
+.stickynote__textarea {
+	all: unset;
+	box-shadow: none;
+	border: none;
+	outline: none;
+	padding: 7px;
+	font-family: Tahoma, sans-serif;
+	background-color: #fff199;
+	color: black;
+	-webkit-appearance: textarea;
+  -webkit-rtl-ordering: logical;
+  user-select: text;
+  flex-direction: column;
+  resize: auto;
+  cursor: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+	text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  margin: 0em 0em 0em 0em;
+  font: 11px system-ui;
+}
+
+.stickynote__textarea:hover {
+	cursor: pointer;
+}
+
+.stickynote__textarea:focus {
+	color: black;
+	cursor: text;
+	border: none;
+	outline: none;
+}
+
+.stickynote__close {
+	width:27px;
+	height:27px;
+	background: url('close.png') no-repeat center center;
+}
