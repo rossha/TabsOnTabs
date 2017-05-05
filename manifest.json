@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Stickies Extension",
-  "description": "This extension allows the user to add stickies to their browser",
+  "name": "Keep Tabs Extension",
+  "description": "This extension allows the user to add notes to their browser window and tabs",
   "version": "1.0",
 
   "browser_action": {
@@ -13,8 +13,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["stickies.css"],
-      "js": ["stickies.js"],
+      "css": ["extension.css"],
+      "js": ["extension.js"],
       "run_at": "document_start"
     }
   ],
